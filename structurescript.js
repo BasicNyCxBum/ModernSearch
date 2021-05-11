@@ -21,7 +21,7 @@
 
 var SPREADSHEET_URL = 'xyz'; //example 'https://docs.google.com/spreadsheets/d/abcd/edit#gid=0'
 var PERIOD_BEGINNING = 'default'; //(optional) format 'yyyymmdd' example '20200131'
-var NUMBER_OF_DAYS = 7; //(optional) length of the period analysed in days
+var NUMBER_OF_DAYS = 90; //(optional) length of the period analysed in days
 var PERIOD_COMPARISON_BEGINNING = 'disabled'; //(optional) format 'yyyymmdd' example '20190131'
 var ACCOUNTS_ALREADY_ANALYZED = 0; // (optional)
 var CAMPAIGNS_ALREADY_ANALYZED = 0; // (optional)
