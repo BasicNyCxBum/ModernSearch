@@ -192,7 +192,7 @@ var IsMCC = false
     if (IsMCC == true)
     {
   sheet1.appendRow([' ','Period analysed', 'Account ID', 'Account name', 'Cost on search campaigns', 'Currency', '# of unique landing pages',
-'Ratio of standard ad groups per unique landing page',  '# of standard ad groups', '% of investment on standard ad groups with a RSA at Ad Strength above "Good"', '% of investment on DSA ad groups', '% of standard ad groups >= '+IMPRESSION_THRESHOLD/1000+'k impressions', 'Average impressions per standard ad group with < '+IMPRESSION_THRESHOLD/1000+'k impressions','# of search campaigns', '# of experiment search campaigns - to explain some traffic split', '% of investment on conversion-based smartbidding campaigns','Bidding strategies', '% of campaigns >= '+CONVERSION_THRESHOLD+' conversions', 'Average conversions on campaigns with < '+CONVERSION_THRESHOLD+' conversions', '# of campaigns with IS lost due to budget (account level)', '# of active keywords', '% of active keywords with < 1 impressions', 'Action plan']);
+'Ratio of standard ad groups per unique landing page',  '# of standard ad groups', '% of investment on standard ad groups with a RSA at Ad Strength above "Good"', '% of investment on DSA ad groups', '% of standard ad groups >= '+IMPRESSION_THRESHOLD/1000+'k impressions', 'Average impressions per standard ad group with < '+IMPRESSION_THRESHOLD/1000+'k impressions','# of search campaigns', '# of experiment search campaigns - to explain some traffic split', '% of investment on conversion-based smartbidding campaigns','Bidding strategies', '% of campaigns >= '+CONVERSION_THRESHOLD+' conversions', 'Average conversions on campaigns with < '+CONVERSION_THRESHOLD+' conversions', '# of campaigns with IS lost due to budget (account level)', '# of active keywords', '% of active keywords with < 1 impressions',  '# of active broad keywords', '% of active broad keywords with < 1 impressions' 'Action plan']);
 
       sheet1.getRange('a:a').setBorder(true, true, true, null, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
       sheet1.getRange('a1:z5').setBorder(true, true, true, true, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
@@ -253,7 +253,7 @@ var IsMCC = false
       sheet1.appendRow([' ']);
       sheet1.appendRow([' ']);
   sheet1.appendRow([' ','Period analysed', 'Account ID', 'Account name','Campaign ID', 'Campaign name', 'Cost on search campaigns', 'Currency', '# of unique landing pages',
-'Ratio of standard ad groups per unique landing page',  '# of standard ad groups', '% of investment on standard ad groups with a RSA at Ad Strength above "Good"', '% of investment on DSA ad groups', '% of standard ad groups >= '+IMPRESSION_THRESHOLD/1000+'k impressions', 'Average impressions per standard ad group with < '+IMPRESSION_THRESHOLD/1000+'k impressions','# of search campaigns', '# of experiment search campaigns - to explain some traffic split', '% of investment on conversion-based smartbidding campaigns','Bidding strategies', '% of campaigns >= '+CONVERSION_THRESHOLD+' conversions', 'Average conversions on campaigns with < '+CONVERSION_THRESHOLD+' conversions', '# of campaigns with IS lost due to budget (account level)', 'Impression Share lost due to budget (campaign level)', '# of active keywords', '% of active keywords with < 1 impressions', 'Action plan']);
+'Ratio of standard ad groups per unique landing page',  '# of standard ad groups', '% of investment on standard ad groups with a RSA at Ad Strength above "Good"', '% of investment on DSA ad groups', '% of standard ad groups >= '+IMPRESSION_THRESHOLD/1000+'k impressions', 'Average impressions per standard ad group with < '+IMPRESSION_THRESHOLD/1000+'k impressions','# of search campaigns', '# of experiment search campaigns - to explain some traffic split', '% of investment on conversion-based smartbidding campaigns','Bidding strategies', '% of campaigns >= '+CONVERSION_THRESHOLD+' conversions', 'Average conversions on campaigns with < '+CONVERSION_THRESHOLD+' conversions', '# of campaigns with IS lost due to budget (account level)', 'Impression Share lost due to budget (campaign level)', '# of active keywords', '% of active keywords with < 1 impressions',  '# of active broad keywords', '% of active broad keywords with < 1 impressions' 'Action plan']);
       sheet1.setFrozenRows(7);
       sheet1.getRange('a:a').setBorder(true, true, true, null, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
       sheet1.getRange('a1:z5').setBorder(true, true, true, true, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
@@ -280,10 +280,10 @@ var IsMCC = false
       sheet1.getRange('p6:w6').merge();
       sheet1.getRange('p6:w6').setValue('Campaigns');
       sheet1.getRange('p6:w6').setBackground('#34a853');
-      sheet1.getRange('x6:y6').merge();
-      sheet1.getRange('x6:y6').setValue('Keywords');
-      sheet1.getRange('x6:y6').setBackground('#d5a6bd');
-      sheet1.getRange('b6:y6').setFontColor('white');
+      sheet1.getRange('x6:AA6').merge();
+      sheet1.getRange('x6:AA6').setValue('Keywords');
+      sheet1.getRange('x6:AA6').setBackground('#d5a6bd');
+      sheet1.getRange('b6:AA6').setFontColor('white');
       sheet1.getRange('z7').setFontWeight('bold');
       sheet1.setColumnWidth(26, 400);
       sheet1.setColumnWidth(4, 150);
@@ -667,14 +667,14 @@ if (ISlostbudget > 0) { totalcountISlostbudget ++ }
         if (IsMCC == true) {
         sheet1.appendRow([' ',periodformatted, accountCID, accountName, totalcostaccount, accountcurrency, landingpage, ratiolp, adGroupnumber, shareRSAclicks, shareDSAclicks ,
  pourcenthighimpression, avstdadgroupimp, searchcampaignsnumber, searchcampaignstrialnumber, sharesmartbidding, smartbiddingstrategies,
- pourcentcampaignhigh, averageconv, totalcountISlostbudget, totalkeywords, percentlowkeywords]);
+ pourcentcampaignhigh, averageconv, totalcountISlostbudget, totalkeywords, percentlowkeywords, totalkeywordsbroad, percentlowkeywordsbroad]);
         if (periodfromtxt != PERIOD_COMPARISON_BEGINNING) { analysedelements++;  }
  }
  else
  {
         sheet1.appendRow([' ',periodformatted, accountCID, accountName,'All', 'All', totalcostaccount, accountcurrency, landingpage, ratiolp, adGroupnumber, shareRSAclicks, shareDSAclicks ,
  pourcenthighimpression, avstdadgroupimp, searchcampaignsnumber, searchcampaignstrialnumber, sharesmartbidding, smartbiddingstrategies,
- pourcentcampaignhigh, averageconv, totalcountISlostbudget,'',  totalkeywords, percentlowkeywords]);
+ pourcentcampaignhigh, averageconv, totalcountISlostbudget,'',  totalkeywords, percentlowkeywords, totalkeywordsbroad, percentlowkeywordsbroad]);
  }
 
 
@@ -727,11 +727,30 @@ function campaignassessment(periodfromtxt, periodtotxt, campaign, sheet1, IGNORE
            .keywords()
 .withCondition('Impressions > 0')
         .withCondition('CampaignId = '+campaignid)
-     .withCondition('Impressions < 1')
+     .withCondition('Impressions < 10')
            .forDateRange(periodfromto).get();
         lowkeywords = lowkeywords.totalNumEntities();
                var percentlowkeywords = '';
         if (totalkeywords > 0) { percentlowkeywords = parseInt(lowkeywords*100/totalkeywords)+'%'  }
+  
+  
+   var totalkeywordsbroad = AdsApp
+           .keywords()
+.withCondition('Impressions > 0')
+.withCondition("KeywordMatchType = BROAD")
+          .withCondition('CampaignId = '+campaignid)
+           .forDateRange(periodfromto).get();
+        var totalkeywordsbroad = totalkeywordsbroad.totalNumEntities();
+        var lowkeywordsboard = AdsApp
+           .keywords()
+.withCondition('Impressions > 0')
+   .withCondition("KeywordMatchType = BROAD")
+        .withCondition('CampaignId = '+campaignid)
+     .withCondition('Impressions < 1')
+           .forDateRange(periodfromto).get();
+        lowkeywordsboard = lowkeywordsboard.totalNumEntities();
+               var percentlowkeywords = '';
+        if (totalkeywordsbroad > 0) { percentlowkeywordsboard = parseInt(lowkeywordsboard*100/totalkeywordsbroad)+'%'  }
 
         var reportcampaigns = AdsApp.report(
           'SELECT Cost, Conversions, BiddingStrategyType, SearchBudgetLostImpressionShare ' +
@@ -827,7 +846,7 @@ function campaignassessment(periodfromtxt, periodtotxt, campaign, sheet1, IGNORE
 
                    sheet1.appendRow([' ',periodformatted, ' ', ' ',campaignid, campaignname, totalcostaccount, accountcurrency, landingpage, ratiolp, adGroupnumber, shareRSAclicks,shareDSAclicks ,
  pourcenthighimpression, avstdadgroupimp, searchcampaignsnumber, searchcampaignstrialnumber, sharesmartbidding, bidstrategy,
- pourcentcampaignhigh, averageconv, '', SearchBudgetLostImpressionShare, totalkeywords, percentlowkeywords]);
+ pourcentcampaignhigh, averageconv, '', SearchBudgetLostImpressionShare, totalkeywords, percentlowkeywords, totalkeywordsboard, percentlowkeywordsboard ]);
           if (periodfromtxt != PERIOD_COMPARISON_BEGINNING) { analysedelements++;  }
 }
 
