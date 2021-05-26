@@ -21,12 +21,12 @@
 
 var SPREADSHEET_URL = 'xyz'; //example 'https://docs.google.com/spreadsheets/d/abcd/edit#gid=0'
 var PERIOD_BEGINNING = 'default'; //(optional) format 'yyyymmdd' example '20200131'
-var NUMBER_OF_DAYS = 7; //(optional) length of the period analysed in days
+var NUMBER_OF_DAYS = 90; //(optional) length of the period analysed in days
 var PERIOD_COMPARISON_BEGINNING = 'disabled'; //(optional) format 'yyyymmdd' example '20190131'
 var ACCOUNTS_ALREADY_ANALYZED = 0; // (optional)
 var CAMPAIGNS_ALREADY_ANALYZED = 0; // (optional)
 var ACCOUNT_LIST = ['disabled']; //(optional) format ['xxx-xxx-xxxx','yyy-yyy-yyyy','zzz-zzz-zzzz'] example ['380-382-1780','363-250-0541']
-var IMPRESSION_THRESHOLD = 'default'; // (optional)
+var IMPRESSION_THRESHOLD = 0; // (optional)
 var CONVERSION_THRESHOLD = 'default'; // (optional)
 var IGNORE_URL_PARAMETERS = true; // (optional)
 
@@ -192,8 +192,7 @@ var IsMCC = false
     if (IsMCC == true)
     {
   sheet1.appendRow([' ','Period analysed', 'Account ID', 'Account name', 'Cost on search campaigns', 'Currency', '# of unique landing pages',
-'Ratio of standard ad groups per unique landing page',  '# of standard ad groups', '% of investment on standard ad groups with a RSA at Ad Strength above "Good"', '% of investment on DSA ad groups', '% of standard ad groups >= '+IMPRESSION_THRESHOLD/1000+'k impressions', 'Average impressions per standard ad group with < '+IMPRESSION_THRESHOLD/1000+'k impressions','# of search campaigns', '# of experiment search campaigns - to explain some traffic split', '% of investment on conversion-based smartbidding campaigns','Bidding strategies', '% of campaigns >= '+CONVERSION_THRESHOLD+' conversions', 'Average conversions on campaigns with < '+CONVERSION_THRESHOLD+' conversions', '# of campaigns with IS lost due to budget (account level)', '# of active keywords', '% of active keywords with < 10 impressions', 'Action plan']);
-
+'Ratio of standard ad groups per unique landing page', '# of standard ad groups', '% of investment on standard ad groups with a RSA at Ad Strength above "Good"', '% of investment on DSA ad groups', '% of standard ad groups >= '+IMPRESSION_THRESHOLD/1000+'k impressions', 'Average impressions per standard ad group with < '+IMPRESSION_THRESHOLD/1000+'k impressions','# of search campaigns', '# of experiment search campaigns - to explain some traffic split', '% of investment on conversion-based smartbidding campaigns','Bidding strategies', '% of campaigns >= '+CONVERSION_THRESHOLD+' conversions', 'Average conversions on campaigns with < '+CONVERSION_THRESHOLD+' conversions', '# of campaigns with IS lost due to budget (account level)', '# of active keywords', '% of active keywords with < 1 impressions', '# of active broad keywords', '% of active broad keywords with < 1 impressions' 'Action plan']);
       sheet1.getRange('a:a').setBorder(true, true, true, null, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
       sheet1.getRange('a1:z5').setBorder(true, true, true, true, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
       sheet1.getRange('x6:z6').setBorder(null, null, null, true, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
@@ -219,10 +218,10 @@ var IsMCC = false
       sheet1.getRange('n6:t6').merge();
       sheet1.getRange('n6:t6').setValue('Campaigns');
       sheet1.getRange('n6:t6').setBackground('#34a853');
-      sheet1.getRange('u6:v6').merge();
-      sheet1.getRange('u6:v6').setValue('Keywords');
-      sheet1.getRange('u6:v6').setBackground('#d5a6bd');
-      sheet1.getRange('b6:v6').setFontColor('white');
+      sheet1.getRange('u6:x6').merge();
+      sheet1.getRange('u6:x6').setValue('Keywords');
+      sheet1.getRange('u6:x6').setBackground('#d5a6bd');
+      sheet1.getRange('b6:x6').setFontColor('white');
       sheet1.getRange('w7').setFontWeight('bold');
       sheet1.setColumnWidth(23, 400);
       sheet1.setColumnWidth(4, 170);
@@ -253,17 +252,17 @@ var IsMCC = false
       sheet1.appendRow([' ']);
       sheet1.appendRow([' ']);
   sheet1.appendRow([' ','Period analysed', 'Account ID', 'Account name','Campaign ID', 'Campaign name', 'Cost on search campaigns', 'Currency', '# of unique landing pages',
-'Ratio of standard ad groups per unique landing page',  '# of standard ad groups', '% of investment on standard ad groups with a RSA at Ad Strength above "Good"', '% of investment on DSA ad groups', '% of standard ad groups >= '+IMPRESSION_THRESHOLD/1000+'k impressions', 'Average impressions per standard ad group with < '+IMPRESSION_THRESHOLD/1000+'k impressions','# of search campaigns', '# of experiment search campaigns - to explain some traffic split', '% of investment on conversion-based smartbidding campaigns','Bidding strategies', '% of campaigns >= '+CONVERSION_THRESHOLD+' conversions', 'Average conversions on campaigns with < '+CONVERSION_THRESHOLD+' conversions', '# of campaigns with IS lost due to budget (account level)', 'Impression Share lost due to budget (campaign level)', '# of active keywords', '% of active keywords with < 10 impressions', 'Action plan']);
+'Ratio of standard ad groups per unique landing page', '# of standard ad groups', '% of investment on standard ad groups with a RSA at Ad Strength above "Good"', '% of investment on DSA ad groups', '% of standard ad groups >= '+IMPRESSION_THRESHOLD/1000+'k impressions', 'Average impressions per standard ad group with < '+IMPRESSION_THRESHOLD/1000+'k impressions','# of search campaigns', '# of experiment search campaigns - to explain some traffic split', '% of investment on conversion-based smartbidding campaigns','Bidding strategies', '% of campaigns >= '+CONVERSION_THRESHOLD+' conversions', 'Average conversions on campaigns with < '+CONVERSION_THRESHOLD+' conversions', '# of campaigns with IS lost due to budget (account level)', 'Impression Share lost due to budget (campaign level)', '# of active keywords', '% of active keywords with < 1 impressions', '# of active broad keywords', '% of active broad keywords with < 1 impressions' 'Action plan']);
       sheet1.setFrozenRows(7);
       sheet1.getRange('a:a').setBorder(true, true, true, null, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
-      sheet1.getRange('a1:z5').setBorder(true, true, true, true, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
-      sheet1.getRange('z6').setBorder(null, null, null, true, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
-      sheet1.getRange('a7:z7').setWrap(true);
+      sheet1.getRange('a1:ab5').setBorder(true, true, true, true, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
+      sheet1.getRange('ab6').setBorder(null, null, null, true, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
+      sheet1.getRange('a7:ab7').setWrap(true);
       sheet1.getRange('b2:b2').setFontWeight('bold');
       sheet1.getRange('b2:b2').setFontSize(14);
-      sheet1.getRange('a1:z7').setFontColor('#666666');
-      sheet1.getRange('a6:z7').setVerticalAlignment('middle');
-      sheet1.getRange('a6:z7').setHorizontalAlignment('center');
+      sheet1.getRange('a1:ab7').setFontColor('#666666');
+      sheet1.getRange('a6:ab7').setVerticalAlignment('middle');
+      sheet1.getRange('a6:ab7').setHorizontalAlignment('center');
       sheet1.getRange('i:j').setHorizontalAlignment('center');
       sheet1.getRange('e8:f8').setHorizontalAlignment('center');
       if (PERIOD_COMPARISON_BEGINNING != 'disabled') { sheet1.getRange('e9:f9').setHorizontalAlignment('center') }
@@ -280,10 +279,10 @@ var IsMCC = false
       sheet1.getRange('p6:w6').merge();
       sheet1.getRange('p6:w6').setValue('Campaigns');
       sheet1.getRange('p6:w6').setBackground('#34a853');
-      sheet1.getRange('x6:y6').merge();
-      sheet1.getRange('x6:y6').setValue('Keywords');
-      sheet1.getRange('x6:y6').setBackground('#d5a6bd');
-      sheet1.getRange('b6:y6').setFontColor('white');
+      sheet1.getRange('x6:aa6').merge();
+      sheet1.getRange('x6:aa6').setValue('Keywords');
+      sheet1.getRange('x6:aa6').setBackground('#d5a6bd');
+      sheet1.getRange('b6:aa6').setFontColor('white');
       sheet1.getRange('z7').setFontWeight('bold');
       sheet1.setColumnWidth(26, 400);
       sheet1.setColumnWidth(4, 150);
@@ -335,15 +334,15 @@ sheet2.getRange('b8').setFormula('=ARRAYFORMULA(IF(RIGHT((substitute(substitute(
       sheet2.setColumnWidth(9, 150);
       sheet2.setFrozenRows(7);
       sheet2.getRange('a:a').setBorder(true, true, true, null, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
-      sheet2.getRange('a1:z6').setBorder(true, true, true, true, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
-      sheet2.getRange('b6:z6').setBorder(true, true, false, true, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
+      sheet2.getRange('a1:ab6').setBorder(true, true, true, true, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
+      sheet2.getRange('b6:ab6').setBorder(true, true, false, true, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
       sheet2.getRange('k:k').setBorder(true, null, true, true, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
-      sheet2.getRange('a7:z7').setWrap(true);
+      sheet2.getRange('a7:ab7').setWrap(true);
       sheet2.getRange('b2:b2').setFontWeight('bold');
       sheet2.getRange('b2:b2').setFontSize(14);
-      sheet2.getRange('a1:z7').setFontColor('#666666');
-      sheet2.getRange('a6:z7').setVerticalAlignment('middle');
-      sheet2.getRange('a6:z7').setHorizontalAlignment('center');
+      sheet2.getRange('a1:ab7').setFontColor('#666666');
+      sheet2.getRange('a6:ab7').setVerticalAlignment('middle');
+      sheet2.getRange('a6:ab7').setHorizontalAlignment('center');
       sheet2.setColumnWidth(1, 21);
       sheet2.setColumnWidth(11, 21);
       sheet2.getRange('j7').setFontWeight('bold');
@@ -386,12 +385,12 @@ sheet2.getRange('b8').setFormula('=ARRAYFORMULA(IF(RIGHT((substitute(substitute(
         .sortDescending()
         .sortBy(pivotTable.getPivotValues()[0], []);
       sheet3.setColumnWidth(2, 800);
-      sheet3.getRange('a1:z').setBorder(true, true, true, true, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
+      sheet3.getRange('a1:ab').setBorder(true, true, true, true, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
       sheet3.setColumnWidth(1, 21);
       sheet3.setColumnWidth(8, 21);
-      sheet3.getRange('a7:z7').setWrap(true);
-      sheet3.getRange('a6:z7').setVerticalAlignment('middle');
-      sheet3.getRange('a6:z7').setHorizontalAlignment('center');
+      sheet3.getRange('a7:ab7').setWrap(true);
+      sheet3.getRange('a6:ab7').setVerticalAlignment('middle');
+      sheet3.getRange('a6:ab7').setHorizontalAlignment('center');
       sheet3.getRange('b7:g7').setBackground('#4285f4');
       sheet3.getRange('b3').setBorder(null, null, true, null, null, null, '#4285f4', SpreadsheetApp.BorderStyle.SOLID_THICK);
       sheet3.getRange('c3').setBorder(null, null, true, null, null, null, '#ea4335', SpreadsheetApp.BorderStyle.SOLID_THICK);
@@ -525,6 +524,23 @@ function accountassessment(periodfromtxt, periodtotxt, account, sheet1, IsMCC, I
         lowkeywords = lowkeywords.totalNumEntities();
                var percentlowkeywords = '';
         if (totalkeywords > 0) { percentlowkeywords = parseInt(lowkeywords*100/totalkeywords)+'%'  }
+        
+        
+          var totalkeywordsbroad = AdsApp
+           .keywords()
+           .withCondition('Impressions > 0')
+           .withCondition('KeywordMatchType = BROAD')
+           .forDateRange(periodfromto).get();
+        var totalkeywordsbroad = totalkeywordsbroad.totalNumEntities();
+        var lowkeywordsbroad = AdsApp
+           .keywords()
+.withCondition('Impressions > 0').withCondition('Impressions < 10')
+        .withCondition('KeywordMatchType = BROAD')
+           .forDateRange(periodfromto).get();
+        lowkeywordsbroad = lowkeywordsbroad.totalNumEntities();
+               var percentlowkeywordsbroad = '';
+        if (totalkeywordsbroad > 0) { percentlowkeywordsbroad = parseInt(lowkeywordsbroad*100/totalkeywordsbroad)+'%'  }
+
 
         var reportcampaigns = AdsApp.report(
           'SELECT Cost, Conversions, CampaignId, SearchBudgetLostImpressionShare ' +
@@ -667,14 +683,14 @@ if (ISlostbudget > 0) { totalcountISlostbudget ++ }
         if (IsMCC == true) {
         sheet1.appendRow([' ',periodformatted, accountCID, accountName, totalcostaccount, accountcurrency, landingpage, ratiolp, adGroupnumber, shareRSAclicks, shareDSAclicks ,
  pourcenthighimpression, avstdadgroupimp, searchcampaignsnumber, searchcampaignstrialnumber, sharesmartbidding, smartbiddingstrategies,
- pourcentcampaignhigh, averageconv, totalcountISlostbudget, totalkeywords, percentlowkeywords]);
+ pourcentcampaignhigh, averageconv, totalcountISlostbudget, totalkeywords, percentlowkeywords, totalkeywordsbroad, percentlowkeywordsbroad]);
         if (periodfromtxt != PERIOD_COMPARISON_BEGINNING) { analysedelements++;  }
  }
  else
  {
         sheet1.appendRow([' ',periodformatted, accountCID, accountName,'All', 'All', totalcostaccount, accountcurrency, landingpage, ratiolp, adGroupnumber, shareRSAclicks, shareDSAclicks ,
  pourcenthighimpression, avstdadgroupimp, searchcampaignsnumber, searchcampaignstrialnumber, sharesmartbidding, smartbiddingstrategies,
- pourcentcampaignhigh, averageconv, totalcountISlostbudget,'',  totalkeywords, percentlowkeywords]);
+ pourcentcampaignhigh, averageconv, totalcountISlostbudget,'',  totalkeywords, percentlowkeywords, totalkeywordsbroad, percentlowkeywordsbroad]);
  }
 
 
@@ -733,6 +749,24 @@ function campaignassessment(periodfromtxt, periodtotxt, campaign, sheet1, IGNORE
                var percentlowkeywords = '';
         if (totalkeywords > 0) { percentlowkeywords = parseInt(lowkeywords*100/totalkeywords)+'%'  }
 
+   var totalkeywordsbroad = AdsApp
+           .keywords()
+.withCondition('Impressions > 0')
+.withCondition('KeywordMatchType = BROAD')
+          .withCondition('CampaignId = '+campaignid)
+           .forDateRange(periodfromto).get();
+        var totalkeywordsbroad = totalkeywordsbroad.totalNumEntities();
+        var lowkeywordsbroad = AdsApp
+           .keywords()
+.withCondition('Impressions > 0')
+   .withCondition('KeywordMatchType = BROAD')
+        .withCondition('CampaignId = '+campaignid)
+     .withCondition('Impressions < 10')
+                .forDateRange(periodfromto).get();
+        lowkeywordsbroad = lowkeywordsbroad.totalNumEntities();
+               var percentlowkeywordsbroad = '';
+        if (totalkeywordsbroad > 0) { percentlowkeywordsboard = parseInt(lowkeywordsbroad*100/totalkeywordsbroad)+'%'  } 
+        
         var reportcampaigns = AdsApp.report(
           'SELECT Cost, Conversions, BiddingStrategyType, SearchBudgetLostImpressionShare ' +
           'FROM   CAMPAIGN_PERFORMANCE_REPORT ' +
@@ -827,7 +861,7 @@ function campaignassessment(periodfromtxt, periodtotxt, campaign, sheet1, IGNORE
 
                    sheet1.appendRow([' ',periodformatted, ' ', ' ',campaignid, campaignname, totalcostaccount, accountcurrency, landingpage, ratiolp, adGroupnumber, shareRSAclicks,shareDSAclicks ,
  pourcenthighimpression, avstdadgroupimp, searchcampaignsnumber, searchcampaignstrialnumber, sharesmartbidding, bidstrategy,
- pourcentcampaignhigh, averageconv, '', SearchBudgetLostImpressionShare, totalkeywords, percentlowkeywords]);
+ pourcentcampaignhigh, averageconv, '', SearchBudgetLostImpressionShare, totalkeywords, percentlowkeywords, totalkeywordsbroad, percentlowkeywordsbroad]);
           if (periodfromtxt != PERIOD_COMPARISON_BEGINNING) { analysedelements++;  }
 }
 
