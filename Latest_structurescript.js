@@ -191,13 +191,13 @@ var IsMCC = false
 
     if (IsMCC == true)
     {
-  sheet1.appendRow([' ','Period analysed', 'Account ID', 'Account name', 'Cost on search campaigns', 'Currency', '# of unique landing pages',
-'Ratio of standard ad groups per unique landing page', '# of standard ad groups', '% of investment on standard ad groups with a RSA at Ad Strength above "Good"', '% of investment on DSA ad groups', '% of standard ad groups >= '+IMPRESSION_THRESHOLD/1000+'k impressions', 'Average impressions per standard ad group with < '+IMPRESSION_THRESHOLD/1000+'k impressions','# of search campaigns', '# of experiment search campaigns - to explain some traffic split', '% of investment on conversion-based smartbidding campaigns','Bidding strategies', '% of campaigns >= '+CONVERSION_THRESHOLD+' conversions', 'Average conversions on campaigns with < '+CONVERSION_THRESHOLD+' conversions', '# of campaigns with IS lost due to budget (account level)', '# of active keywords', '% of active keywords with < 1 impressions', '# of active broad keywords', '% of active broad keywords with < 1 impressions' 'Action plan']);
+  sheet1.appendRow([' ','Period analyzed', 'Account ID', 'Account name', 'Cost on search campaigns', 'Currency', '# of unique landing pages',
+'Ratio of standard ad groups per unique landing page', '# of standard ad groups', '% of investment on standard ad groups with a RSA at Ad Strength above "Good"', '% of investment on DSA ad groups', '% of standard ad groups >= '+IMPRESSION_THRESHOLD/1000+'k impressions', 'Average impressions per standard ad group with < '+IMPRESSION_THRESHOLD/1000+'k impressions','# of search campaigns', '# of experiment search campaigns - to explain some traffic split', '% of investment on conversion-based smartbidding campaigns','Bidding strategies', '% of campaigns >= '+CONVERSION_THRESHOLD+' conversions', 'Average conversions on campaigns with < '+CONVERSION_THRESHOLD+' conversions', '# of campaigns with IS lost due to budget (account level)', '# of active keywords', '% of active keywords with < 1 impressions', '# of active broad keywords', '% of active broad keywords with < 1 impressions', 'Action plan']);
       sheet1.getRange('a:a').setBorder(true, true, true, null, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
       sheet1.getRange('a1:z5').setBorder(true, true, true, true, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
       sheet1.getRange('x6:z6').setBorder(null, null, null, true, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
       sheet1.getRange('w6').setBorder(null, null, null, true, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
-      sheet1.getRange('a7:z7').setWrap(true);
+      sheet1.getRange('a7:ab7').setWrap(true);
       sheet1.getRange('b2:b2').setFontWeight('bold');
       sheet1.getRange('b2:b2').setFontSize(14);
       sheet1.getRange('a1:z7').setFontColor('#666666');
@@ -252,7 +252,7 @@ var IsMCC = false
       sheet1.appendRow([' ']);
       sheet1.appendRow([' ']);
   sheet1.appendRow([' ','Period analysed', 'Account ID', 'Account name','Campaign ID', 'Campaign name', 'Cost on search campaigns', 'Currency', '# of unique landing pages',
-'Ratio of standard ad groups per unique landing page', '# of standard ad groups', '% of investment on standard ad groups with a RSA at Ad Strength above "Good"', '% of investment on DSA ad groups', '% of standard ad groups >= '+IMPRESSION_THRESHOLD/1000+'k impressions', 'Average impressions per standard ad group with < '+IMPRESSION_THRESHOLD/1000+'k impressions','# of search campaigns', '# of experiment search campaigns - to explain some traffic split', '% of investment on conversion-based smartbidding campaigns','Bidding strategies', '% of campaigns >= '+CONVERSION_THRESHOLD+' conversions', 'Average conversions on campaigns with < '+CONVERSION_THRESHOLD+' conversions', '# of campaigns with IS lost due to budget (account level)', 'Impression Share lost due to budget (campaign level)', '# of active keywords', '% of active keywords with < 1 impressions', '# of active broad keywords', '% of active broad keywords with < 1 impressions' 'Action plan']);
+'Ratio of standard ad groups per unique landing page', '# of standard ad groups', '% of investment on standard ad groups with a RSA at Ad Strength above "Good"', '% of investment on DSA ad groups', '% of standard ad groups >= '+IMPRESSION_THRESHOLD/1000+'k impressions', 'Average impressions per standard ad group with < '+IMPRESSION_THRESHOLD/1000+'k impressions','# of search campaigns', '# of experiment search campaigns - to explain some traffic split', '% of investment on conversion-based smartbidding campaigns','Bidding strategies', '% of campaigns >= '+CONVERSION_THRESHOLD+' conversions', 'Average conversions on campaigns with < '+CONVERSION_THRESHOLD+' conversions', '# of campaigns with IS lost due to budget (account level)', 'Impression Share lost due to budget (campaign level)', '# of active keywords', '% of active keywords with < 1 impressions', '# of active broad keywords', '% of active broad keywords with < 1 impressions''Action plan']);
       sheet1.setFrozenRows(7);
       sheet1.getRange('a:a').setBorder(true, true, true, null, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
       sheet1.getRange('a1:ab5').setBorder(true, true, true, true, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
@@ -765,7 +765,7 @@ function campaignassessment(periodfromtxt, periodtotxt, campaign, sheet1, IGNORE
                 .forDateRange(periodfromto).get();
         lowkeywordsbroad = lowkeywordsbroad.totalNumEntities();
                var percentlowkeywordsbroad = '';
-        if (totalkeywordsbroad > 0) { percentlowkeywordsboard = parseInt(lowkeywordsbroad*100/totalkeywordsbroad)+'%'  } 
+        if (totalkeywordsbroad > 0) { percentlowkeywordsbroad = parseInt(lowkeywordsbroad*100/totalkeywordsbroad)+'%'  } 
         
         var reportcampaigns = AdsApp.report(
           'SELECT Cost, Conversions, BiddingStrategyType, SearchBudgetLostImpressionShare ' +
