@@ -34,13 +34,13 @@ var IGNORE_URL_PARAMETERS = true; // (optional)
 
 var now = new Date();
 var MILLIS_PER_DAY = 1000 * 60 * 60 * 24;
-var timeZone = 'UTC';
-if (PERIOD_BEGINNING == 'default')  {   PERIOD_BEGINNING = new Date(now.getTime() - (7 + NUMBER_OF_DAYS) * MILLIS_PER_DAY); PERIOD_BEGINNING = Utilities.formatDate(PERIOD_BEGINNING, timeZone, 'yyyyMMdd');}
+var timeZone = 'America/New_York';
+if (PERIOD_BEGINNING == 'default')  {   PERIOD_BEGINNING = new Date(now.getTime() - (7 + NUMBER_OF_DAYS) * MILLIS_PER_DAY); PERIOD_BEGINNING = Utilities.formatDate(PERIOD_BEGINNING, timeZone, 'MM-dd-yyyy');}
 var PERIOD_END = new Date (strtodate(PERIOD_BEGINNING).getTime() + (NUMBER_OF_DAYS - 1) * MILLIS_PER_DAY);
-var PERIOD_END = Utilities.formatDate(PERIOD_END, timeZone, 'yyyyMMdd');
+var PERIOD_END = Utilities.formatDate(PERIOD_END, timeZone, 'MM-dd-yyyy');
 var now = new Date();
 var PERIOD_COMPARISON_END = '';
-if (PERIOD_COMPARISON_BEGINNING != 'disabled') { PERIOD_COMPARISON_END = new Date (strtodate(PERIOD_COMPARISON_BEGINNING).getTime() + (NUMBER_OF_DAYS - 1) * MILLIS_PER_DAY);  PERIOD_COMPARISON_END = Utilities.formatDate(PERIOD_COMPARISON_END, timeZone, 'yyyyMMdd');   }
+if (PERIOD_COMPARISON_BEGINNING != 'disabled') { PERIOD_COMPARISON_END = new Date (strtodate(PERIOD_COMPARISON_BEGINNING).getTime() + (NUMBER_OF_DAYS - 1) * MILLIS_PER_DAY);  PERIOD_COMPARISON_END = Utilities.formatDate(PERIOD_COMPARISON_END, timeZone, 'MM-dd-yyyy');   }
 var periodfromtxt = PERIOD_BEGINNING;
 var periodtotxt = PERIOD_END;
 var periodformatted = periodfromtxt.substring(6, 8)+'/'+periodfromtxt.substring(4, 6)+'/'+periodfromtxt.substring(0, 4)+' to '+periodtotxt.substring(6, 8)+'/'+periodtotxt.substring(4, 6)+'/'+periodtotxt.substring(0, 4);
