@@ -20,9 +20,9 @@
 // Beginning of parameters
 
 var SPREADSHEET_URL = 'xyz'; //example 'https://docs.google.com/spreadsheets/d/abcd/edit#gid=0'
-var PERIOD_BEGINNING = 'default'; //(optional) format 'yyyymmdd' example '20200131'
-var NUMBER_OF_DAYS = 90; //(optional) length of the period analysed in days
-var PERIOD_COMPARISON_BEGINNING = 'disabled'; //(optional) format 'yyyymmdd' example '20190131'
+var PERIOD_BEGINNING = 'default'; //(optional) format 'mm-dd-yyyy' example '01-31-2020'
+var NUMBER_OF_DAYS = 90; //(optional) length of the period analyed in days
+var PERIOD_COMPARISON_BEGINNING = 'disabled'; //(optional) format 'mm-dd-yyyy' example '01-31-2019'
 var ACCOUNTS_ALREADY_ANALYZED = 0; // (optional)
 var CAMPAIGNS_ALREADY_ANALYZED = 0; // (optional)
 var ACCOUNT_LIST = ['disabled']; //(optional) format ['xxx-xxx-xxxx','yyy-yyy-yyyy','zzz-zzz-zzzz'] example ['380-382-1780','363-250-0541']
@@ -182,8 +182,9 @@ var IsMCC = false
     sheet1.clear();
     sheet1.appendRow([' ']);
     sheet1.appendRow([' ', 'Account Structure Assessment - '+accountName+ ' ' + accountID]);
-    if (PERIOD_COMPARISON_BEGINNING != 'disabled') { sheet1.appendRow([' ', 'Period analysed: '+periodformatted+' & '+periodformatted2])}
-    else { sheet1.appendRow([' ', 'Period analysed: '+periodformatted])  }
+    if (PERIOD_COMPARISON_BEGINNING != 'disabled') { sheet1.appendRow([' ', 'Period analyzed: '+periodformatted+' & '+periodformatted2])}
+    else { sheet1.appendRow([' ', 'Period 
+                             : '+periodformatted])  }
     sheet1.appendRow([' ']);
     sheet1.appendRow([' ']);
     sheet1.appendRow([' ']);
@@ -192,7 +193,7 @@ var IsMCC = false
     if (IsMCC == true)
     {
   sheet1.appendRow([' ','Period analyzed', 'Account ID', 'Account name', 'Cost on search campaigns', 'Currency', '# of unique landing pages',
-'Ratio of standard ad groups per unique landing page', '# of standard ad groups', '% of investment on standard ad groups with a RSA at Ad Strength above "Good"', '% of investment on DSA ad groups', '% of standard ad groups >= '+IMPRESSION_THRESHOLD/1000+'k impressions', 'Average impressions per standard ad group with < '+IMPRESSION_THRESHOLD/1000+'k impressions','# of search campaigns', '# of experiment search campaigns - to explain some traffic split', '% of investment on conversion-based smartbidding campaigns','Bidding strategies', '% of campaigns >= '+CONVERSION_THRESHOLD+' conversions', 'Average conversions on campaigns with < '+CONVERSION_THRESHOLD+' conversions', '# of campaigns with IS lost due to budget (account level)', '# of active keywords', '% of active keywords with < 1 impressions', '# of active broad keywords', '% of active broad keywords with < 1 impressions', 'Action plan']);
+'Ratio of standard ad groups per unique landing page', '# of standard ad groups', '% of investment on standard ad groups with a RSA at Ad Strength above "Good"', '% of investment on DSA ad groups', '% of standard ad groups >= '+IMPRESSION_THRESHOLD/1000+'k impressions', 'Average impressions per standard ad group with < '+IMPRESSION_THRESHOLD/1000+'k impressions','# of search campaigns', '# of experiment search campaigns - to explain some traffic split', '% of investment on conversion-based smartbidding campaigns','Bidding strategies', '% of campaigns >= '+CONVERSION_THRESHOLD+' conversions', 'Average conversions on campaigns with < '+CONVERSION_THRESHOLD+' conversions', '# of campaigns with IS lost due to budget (account level)', '# of active keywords', '% of active keywords with < 10 impressions', '# of active broad keywords', '% of active broad keywords with < 10 impressions', 'Action plan']);
       sheet1.getRange('a:a').setBorder(true, true, true, null, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
       sheet1.getRange('a1:z5').setBorder(true, true, true, true, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
       sheet1.getRange('x6:z6').setBorder(null, null, null, true, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
@@ -246,13 +247,13 @@ var IsMCC = false
       sheet1.clear();
       sheet1.appendRow([' ']);
       sheet1.appendRow([' ', 'Account Structure Assessment - '+accountName+ ' ' + accountID]);
-      if (PERIOD_COMPARISON_BEGINNING != 'disabled') { sheet1.appendRow([' ', 'Period analysed: '+periodformatted+' & '+periodformatted2])}
-      else { sheet1.appendRow([' ', 'Period analysed: '+periodformatted])  }
+      if (PERIOD_COMPARISON_BEGINNING != 'disabled') { sheet1.appendRow([' ', 'Period analyzed: '+periodformatted+' & '+periodformatted2])}
+      else { sheet1.appendRow([' ', 'Period analyzed: '+periodformatted])  }
       sheet1.appendRow([' ']);
       sheet1.appendRow([' ']);
       sheet1.appendRow([' ']);
-  sheet1.appendRow([' ','Period analysed', 'Account ID', 'Account name','Campaign ID', 'Campaign name', 'Cost on search campaigns', 'Currency', '# of unique landing pages',
-'Ratio of standard ad groups per unique landing page', '# of standard ad groups', '% of investment on standard ad groups with a RSA at Ad Strength above "Good"', '% of investment on DSA ad groups', '% of standard ad groups >= '+IMPRESSION_THRESHOLD/1000+'k impressions', 'Average impressions per standard ad group with < '+IMPRESSION_THRESHOLD/1000+'k impressions','# of search campaigns', '# of experiment search campaigns - to explain some traffic split', '% of investment on conversion-based smartbidding campaigns','Bidding strategies', '% of campaigns >= '+CONVERSION_THRESHOLD+' conversions', 'Average conversions on campaigns with < '+CONVERSION_THRESHOLD+' conversions', '# of campaigns with IS lost due to budget (account level)', 'Impression Share lost due to budget (campaign level)', '# of active keywords', '% of active keywords with < 1 impressions', '# of active broad keywords', '% of active broad keywords with < 1 impressions','Action plan']);
+  sheet1.appendRow([' ','Period analyzed', 'Account ID', 'Account name','Campaign ID', 'Campaign name', 'Cost on search campaigns', 'Currency', '# of unique landing pages',
+'Ratio of standard ad groups per unique landing page', '# of standard ad groups', '% of investment on standard ad groups with a RSA at Ad Strength above "Good"', '% of investment on DSA ad groups', '% of standard ad groups >= '+IMPRESSION_THRESHOLD/1000+'k impressions', 'Average impressions per standard ad group with < '+IMPRESSION_THRESHOLD/1000+'k impressions','# of search campaigns', '# of experiment search campaigns - to explain some traffic split', '% of investment on conversion-based smartbidding campaigns','Bidding strategies', '% of campaigns >= '+CONVERSION_THRESHOLD+' conversions', 'Average conversions on campaigns with < '+CONVERSION_THRESHOLD+' conversions', '# of campaigns with IS lost due to budget (account level)', 'Impression Share lost due to budget (campaign level)', '# of active keywords', '% of active keywords with < 10 impressions', '# of active broad keywords', '% of active broad keywords with < 10 impressions','Action plan']);
       sheet1.setFrozenRows(7);
       sheet1.getRange('a:a').setBorder(true, true, true, null, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
       sheet1.getRange('a1:ab5').setBorder(true, true, true, true, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
@@ -326,8 +327,8 @@ sheet2.getRange('b8').setFormula('=ARRAYFORMULA(IF(RIGHT((substitute(substitute(
       sheet2.getRange('A:A').setFontColor('white');
       sheet2.getRange('A1:I7').setValue('');
       sheet2.getRange('B2').setValue('Landing page report - Data - '+accountName+ ' ' + accountID);
-      if (PERIOD_COMPARISON_BEGINNING != 'disabled') { sheet2.getRange('B3').setValue('Period analysed: '+periodformatted+' & '+periodformatted2)}
-      else { sheet2.getRange('B3').setValue('Period analysed: '+periodformatted)  }
+      if (PERIOD_COMPARISON_BEGINNING != 'disabled') { sheet2.getRange('B3').setValue('Period analyzed: '+periodformatted+' & '+periodformatted2)}
+      else { sheet2.getRange('B3').setValue('Period analyzed: '+periodformatted)  }
       sheet2.getRange('B7:J7').setValues([['Landing page', 'Impressions', 'Clicks', 'Conversions', 'Ad group ID', 'Ad group name', 'Campaign ID', 'Campaign name', 'Action plan']]);
       sheet2.setColumnWidth(2, 300);
       sheet2.setColumnWidth(7, 150);
@@ -362,8 +363,8 @@ sheet2.getRange('b8').setFormula('=ARRAYFORMULA(IF(RIGHT((substitute(substitute(
       sheet3.clear();
       sheet3.appendRow([' ']);
       sheet3.appendRow([' ', 'Landing page report - Pivot table - '+accountName+ ' ' + accountID]);
-      if (PERIOD_COMPARISON_BEGINNING != 'disabled') { sheet3.appendRow([' ', 'Period analysed: '+periodformatted+' & '+periodformatted2])}
-      else { sheet3.appendRow([' ', 'Period analysed: '+periodformatted])  }
+      if (PERIOD_COMPARISON_BEGINNING != 'disabled') { sheet3.appendRow([' ', 'Period analyzed: '+periodformatted+' & '+periodformatted2])}
+      else { sheet3.appendRow([' ', 'Period analyzed: '+periodformatted])  }
       sheet3.appendRow([' ']);
       sheet3.appendRow([' ']);
       sheet3.appendRow([' ']);
