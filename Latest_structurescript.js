@@ -19,10 +19,10 @@
 
 // Beginning of parameters
 
-var SPREADSHEET_URL = 'xyz'; //example 'https://docs.google.com/spreadsheets/d/abcd/edit#gid=0'
-var PERIOD_BEGINNING = 'default'; //(optional) format 'mm-dd-yyyy' example '01-31-2020'
-var NUMBER_OF_DAYS = 90; //(optional) length of the period analyed in days
-var PERIOD_COMPARISON_BEGINNING = 'disabled'; //(optional) format 'mm-dd-yyyy' example '01-31-2019'
+var SPREADSHEET_URL = 'https://docs.google.com/spreadsheets/d/1JNWNoK7K1ntnU54m9FyhO9VkEffJbWCkY724rB8eaKI/edit#gid=0'; //example 'https://docs.google.com/spreadsheets/d/abcd/edit#gid=0'
+var PERIOD_BEGINNING = 'default'; //(optional) format 'yyyyMMdd' example '20200131'
+var NUMBER_OF_DAYS = 90; //(optional) length of the period analysed in days
+var PERIOD_COMPARISON_BEGINNING = 'disabled'; //(optional) format 'yyyyMMdd' example '20190131'
 var ACCOUNTS_ALREADY_ANALYZED = 0; // (optional)
 var CAMPAIGNS_ALREADY_ANALYZED = 0; // (optional)
 var ACCOUNT_LIST = ['disabled']; //(optional) format ['xxx-xxx-xxxx','yyy-yyy-yyyy','zzz-zzz-zzzz'] example ['380-382-1780','363-250-0541']
@@ -35,12 +35,12 @@ var IGNORE_URL_PARAMETERS = true; // (optional)
 var now = new Date();
 var MILLIS_PER_DAY = 1000 * 60 * 60 * 24;
 var timeZone = 'America/New_York';
-if (PERIOD_BEGINNING == 'default')  {   PERIOD_BEGINNING = new Date(now.getTime() - (7 + NUMBER_OF_DAYS) * MILLIS_PER_DAY); PERIOD_BEGINNING = Utilities.formatDate(PERIOD_BEGINNING, timeZone, 'MM-dd-yyyy');}
+if (PERIOD_BEGINNING == 'default')  {   PERIOD_BEGINNING = new Date(now.getTime() - (7 + NUMBER_OF_DAYS) * MILLIS_PER_DAY); PERIOD_BEGINNING = Utilities.formatDate(PERIOD_BEGINNING, timeZone, 'yyyyMMdd');}
 var PERIOD_END = new Date (strtodate(PERIOD_BEGINNING).getTime() + (NUMBER_OF_DAYS - 1) * MILLIS_PER_DAY);
-var PERIOD_END = Utilities.formatDate(PERIOD_END, timeZone, 'MM-dd-yyyy');
+var PERIOD_END = Utilities.formatDate(PERIOD_END, timeZone, 'yyyyMMdd');
 var now = new Date();
 var PERIOD_COMPARISON_END = '';
-if (PERIOD_COMPARISON_BEGINNING != 'disabled') { PERIOD_COMPARISON_END = new Date (strtodate(PERIOD_COMPARISON_BEGINNING).getTime() + (NUMBER_OF_DAYS - 1) * MILLIS_PER_DAY);  PERIOD_COMPARISON_END = Utilities.formatDate(PERIOD_COMPARISON_END, timeZone, 'MM-dd-yyyy');   }
+if (PERIOD_COMPARISON_BEGINNING != 'disabled') { PERIOD_COMPARISON_END = new Date (strtodate(PERIOD_COMPARISON_BEGINNING).getTime() + (NUMBER_OF_DAYS - 1) * MILLIS_PER_DAY);  PERIOD_COMPARISON_END = Utilities.formatDate(PERIOD_COMPARISON_END, timeZone, 'yyyyMMdd');   }
 var periodfromtxt = PERIOD_BEGINNING;
 var periodtotxt = PERIOD_END;
 var periodformatted = periodfromtxt.substring(6, 8)+'/'+periodfromtxt.substring(4, 6)+'/'+periodfromtxt.substring(0, 4)+' to '+periodtotxt.substring(6, 8)+'/'+periodtotxt.substring(4, 6)+'/'+periodtotxt.substring(0, 4);
@@ -182,9 +182,8 @@ var IsMCC = false
     sheet1.clear();
     sheet1.appendRow([' ']);
     sheet1.appendRow([' ', 'Account Structure Assessment - '+accountName+ ' ' + accountID]);
-    if (PERIOD_COMPARISON_BEGINNING != 'disabled') { sheet1.appendRow([' ', 'Period analyzed: '+periodformatted+' & '+periodformatted2])}
-    else { sheet1.appendRow([' ', 'Period 
-                             : '+periodformatted])  }
+    if (PERIOD_COMPARISON_BEGINNING != 'disabled') { sheet1.appendRow([' ', 'Period analysed: '+periodformatted+' & '+periodformatted2])}
+    else { sheet1.appendRow([' ', 'Period analysed: '+periodformatted])  }
     sheet1.appendRow([' ']);
     sheet1.appendRow([' ']);
     sheet1.appendRow([' ']);
@@ -195,15 +194,15 @@ var IsMCC = false
   sheet1.appendRow([' ','Period analyzed', 'Account ID', 'Account name', 'Cost on search campaigns', 'Currency', '# of unique landing pages',
 'Ratio of standard ad groups per unique landing page', '# of standard ad groups', '% of investment on standard ad groups with a RSA at Ad Strength above "Good"', '% of investment on DSA ad groups', '% of standard ad groups >= '+IMPRESSION_THRESHOLD/1000+'k impressions', 'Average impressions per standard ad group with < '+IMPRESSION_THRESHOLD/1000+'k impressions','# of search campaigns', '# of experiment search campaigns - to explain some traffic split', '% of investment on conversion-based smartbidding campaigns','Bidding strategies', '% of campaigns >= '+CONVERSION_THRESHOLD+' conversions', 'Average conversions on campaigns with < '+CONVERSION_THRESHOLD+' conversions', '# of campaigns with IS lost due to budget (account level)', '# of active keywords', '% of active keywords with < 10 impressions', '# of active broad keywords', '% of active broad keywords with < 10 impressions', 'Action plan']);
       sheet1.getRange('a:a').setBorder(true, true, true, null, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
-      sheet1.getRange('a1:z5').setBorder(true, true, true, true, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
-      sheet1.getRange('x6:z6').setBorder(null, null, null, true, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
+      sheet1.getRange('a1:aa5').setBorder(true, true, true, true, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
+      sheet1.getRange('x6:aa6').setBorder(null, null, null, true, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
       sheet1.getRange('w6').setBorder(null, null, null, true, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
       sheet1.getRange('a7:ab7').setWrap(true);
       sheet1.getRange('b2:b2').setFontWeight('bold');
       sheet1.getRange('b2:b2').setFontSize(14);
-      sheet1.getRange('a1:z7').setFontColor('#666666');
-      sheet1.getRange('a6:z7').setVerticalAlignment('middle');
-      sheet1.getRange('a6:z7').setHorizontalAlignment('center');
+      sheet1.getRange('a1:aa7').setFontColor('#666666');
+      sheet1.getRange('a6:aa7').setVerticalAlignment('middle');
+      sheet1.getRange('a6:aa7').setHorizontalAlignment('center');
       sheet1.getRange('g:g').setHorizontalAlignment('center');
       sheet1.getRange('h:h').setHorizontalAlignment('center');
       sheet1.setColumnWidth(1, 21);
