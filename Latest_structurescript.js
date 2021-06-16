@@ -735,16 +735,58 @@ var reportadgroup = AdsApp.report(
 
 
         if (IsMCC == true) {
-        sheet1.appendRow([' ',periodformatted, accountCID, accountName, totalcostaccount, accountcurrency, landingpage, ratiolp, adGroupnumber, shareRSAclicks, shareDSAclicks ,
- pourcenthighimpression, avstdadgroupimp, searchcampaignsnumber, searchcampaignstrialnumber, sharesmartbidding, smartbiddingstrategies,
- pourcentcampaignhigh, averageconv, totalcountISlostbudget, totalkeywords, percentlowkeywords, totalkeywordsbroad, percentlowkeywordsbroad]);
+        sheet1.appendRow([' ', //Row A
+                          periodformatted, 
+                          accountCID, 
+                          accountName, totalcostaccount, 
+                          accountcurrency, 
+                          landingpage, 
+                          ratiolp, 
+                          adGroupnumber, 
+                          shareRSAclicks, 
+                          shareDSAclicks,
+                          pourcenthighimpression, 
+                          avstdadgroupimp, 
+                          searchcampaignsnumber, 
+                          searchcampaignstrialnumber, 
+                          sharesmartbidding, 
+                          smartbiddingstrategies,
+                          pourcentcampaignhigh, 
+                          averageconv, 
+                          totalcountISlostbudget,
+                          totalkeywords, 
+                          percentlowkeywords, 
+                          totalkeywordsbroad, 
+                          percentlowkeywordsbroad]);
         if (periodfromtxt != PERIOD_COMPARISON_BEGINNING) { analysedelements++;  }
  }
  else
  {
-        sheet1.appendRow([' ',periodformatted, accountCID, accountName,'All', 'All', totalcostaccount, accountcurrency, landingpage, ratiolp, adGroupnumber, shareRSAclicks, shareDSAclicks ,
- pourcenthighimpression, avstdadgroupimp, searchcampaignsnumber, searchcampaignstrialnumber, sharesmartbidding, smartbiddingstrategies,
- pourcentcampaignhigh, averageconv, totalcountISlostbudget,'',  totalkeywords, percentlowkeywords, totalkeywordsbroad, percentlowkeywordsbroad]);
+        sheet1.appendRow([' ', //Row A
+                          periodformatted, 
+                          accountCID, 
+                          accountName,
+                          totalcostaccount, 
+                          accountcurrency, 
+                          landingpage, 
+                          ratiolp, 
+                          adGroupnumber, 
+                          shareRSAclicks, 
+                          shareDSAclicks,
+                          pourcenthighimpression, 
+                          avstdadgroupimp, 
+                          searchcampaignsnumber, 
+                          searchcampaignstrialnumber, 
+                          sharesmartbidding, 
+                          smartbiddingstrategies,
+                          pourcentcampaignhigh, 
+                          averageconv, 
+                          totalcountISlostbudget,
+                          '', 
+                          totalkeywords, 
+                          percentlowkeywords, 
+                          totalkeywordsbroad, 
+                          percentlowkeywordsbroad]);
  }
 
 
