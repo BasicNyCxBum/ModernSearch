@@ -650,7 +650,7 @@ if (ISlostbudget > 0) { totalcountISlostbudget ++ }
             if(parseFloat(row['Impressions'].replace(/,/g,'')) > 0 ) {idRSAAverage.push(row['AdGroupId'])}
           }
         
-          var reportRSAAverage = AdsApp.report(
+          var reportRSABad = AdsApp.report(
           'SELECT AdGroupId, Status, Impressions, AdStrengthInfo, Cost ' +
           'FROM   AD_PERFORMANCE_REPORT ' +
           'WHERE  AdType = RESPONSIVE_SEARCH_AD AND AdStrengthInfo IN [POOR] ' +
@@ -922,7 +922,7 @@ function campaignassessment(periodfromtxt, periodtotxt, campaign, sheet1, IGNORE
           }
         
           var reportRSAAverage = AdsApp.report(
-          'SELECT AdGroupId, Status, Impressions, AdStrengthInfo, Cost' +
+          'SELECT AdGroupId, Status, Impressions, AdStrengthInfo, Cost ' +
           'FROM   AD_PERFORMANCE_REPORT ' +
           'WHERE  AdType = RESPONSIVE_SEARCH_AD AND AdStrengthInfo IN [AVERAGE] ' +
           'DURING ' + periodfromto);
@@ -934,12 +934,12 @@ function campaignassessment(periodfromtxt, periodtotxt, campaign, sheet1, IGNORE
             if(parseFloat(row['Impressions'].replace(/,/g,'')) > 0 ) {idRSAAverage.push(row['AdGroupId'])}
           }
         
-          var reportRSAAverage = AdsApp.report(
-          'SELECT AdGroupId, Status, Impressions, AdStrengthInfo, Cost' +
+          var reportRSABad = AdsApp.report(
+          'SELECT AdGroupId, Status, Impressions, AdStrengthInfo, Cost ' +
           'FROM   AD_PERFORMANCE_REPORT ' +
           'WHERE  AdType = RESPONSIVE_SEARCH_AD AND AdStrengthInfo IN [POOR] ' +
           'DURING ' + periodfromto);
-          var rows = reportRSAGood.rows();
+          var rows = reportRSABad.rows();
           var idRSABad = [];
           while (rows.hasNext())
           {
@@ -970,6 +970,8 @@ function campaignassessment(periodfromtxt, periodtotxt, campaign, sheet1, IGNORE
               var Impressions = parseFloat(row['Impressions'].replace(/,/g,''));
                 if (Impressions < IMPRESSION_THRESHOLD && row['AdGroupType'] == 'Standard')  { totalstdadgroupimp += Impressions }
                 if (row['AdGroupType'] == 'Search Dynamic Ads')  { idDSA.push(row['AdGroupId']); DSAcost += parseFloat(row['Cost'].replace(/,/g,''));}
+                // ExcellentRSA
+                if (idRSAExcellent.indexOf(row['AdGroupId']) >= 0 )  { RSAExcellentCost += parseFloat(row['Cost'].replace(/,/g,'')) }
                 // GoodRSA
                 if (idRSAGood.indexOf(row['AdGroupId']) >= 0 )  { RSAGoodCost += parseFloat(row['Cost'].replace(/,/g,'')) }
                 // AverageRSA
@@ -980,6 +982,11 @@ function campaignassessment(periodfromtxt, periodtotxt, campaign, sheet1, IGNORE
               }
               var avstdadgroupimp = '';
           if ((adGroupnumber-adGroupDSAnumber - adGrouphighimpressions) > 0)  { avstdadgroupimp =  parseInt(totalstdadgroupimp / (adGroupnumber - adGroupDSAnumber - adGrouphighimpressions)) }
+       
+  
+        var shareRSAExcellentCost = '';
+        if (totalcost > 0 )  { shareRSAExcellentCost = parseFloat(RSAExcellentCost*100/totalcost).toFixed(1)+'%' }
+  
         var shareRSAGoodCost = '';
         if (totalcost > 0 )  { shareRSAGoodCost = parseFloat(RSAGoodCost*100/totalcost).toFixed(1)+'%' }
         
@@ -1040,7 +1047,7 @@ function campaignassessment(periodfromtxt, periodtotxt, campaign, sheet1, IGNORE
                                      bidstrategy,
                                      pourcentcampaignhigh, 
                                      averageconv, 
-                                     '', 
+                                     ' ', 
                                      SearchBudgetLostImpressionShare, 
                                      totalkeywords, 
                                      percentlowkeywords, 
