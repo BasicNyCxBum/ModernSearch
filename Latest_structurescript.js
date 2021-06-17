@@ -736,17 +736,22 @@ var reportadgroup = AdsApp.report(
 
         if (IsMCC == true) {
         sheet1.appendRow([' ', //Row A
-                          periodformatted, 
-                          accountCID, 
-                          accountName, totalcostaccount, 
-                          accountcurrency, 
-                          landingpage, 
-                          ratiolp, 
-                          adGroupnumber, 
-                          shareRSAExcellentCost, 
-                          shareRSAGoodCost,
-                          shareRSAAverageCost,
-                          shareRSABadCost,
+                          periodformatted, // Row B
+                          accountCID, // Row C
+                          accountName, // Row D
+                          totalcostaccount, // Row E
+                          accountcurrency, // Row F
+                          landingpage, // Row G
+                          ratiolp, // Row H
+                          adGroupnumber, // Row I
+                          shareRSAExcellentCost, // Row J
+                          ' ', // Need Actuals
+                          shareRSAGoodCost, // Row L
+                          ' ', // Need Actuals
+                          shareRSAAverageCost, // Row N
+                          ' ', // Need Actuals
+                          shareRSABadCost, // Row P
+                          ' ', // Need Actuals
                           shareDSAclicks,
                           pourcenthighimpression, 
                           avstdadgroupimp, 
@@ -766,18 +771,22 @@ var reportadgroup = AdsApp.report(
  else
  {
         sheet1.appendRow([' ', //Row A
-                          periodformatted, 
-                          accountCID, 
-                          accountName,
-                          totalcostaccount, 
-                          accountcurrency, 
-                          landingpage, 
-                          ratiolp, 
-                          adGroupnumber, 
-                          shareRSAExcellentCost, 
-                          shareRSAGoodCost,
-                          shareRSAAverageCost,
-                          shareRSABadCost,
+                          periodformatted, // Row B
+                          accountCID, // Row C
+                          accountName, // Row D
+                          totalcostaccount, // Row E
+                          accountcurrency, // Row F
+                          landingpage, // Row G
+                          ratiolp, // Row H
+                          adGroupnumber, // Row I
+                          shareRSAExcellentCost, // Row J
+                          ' ', // Need Actuals
+                          shareRSAGoodCost, // Row L
+                          ' ', // Need Actuals
+                          shareRSAAverageCost, // Row N
+                          ' ', // Need Actuals
+                          shareRSABadCost, // Row P
+                          ' ', // Need Actuals
                           shareDSAclicks,
                           pourcenthighimpression, 
                           avstdadgroupimp, 
