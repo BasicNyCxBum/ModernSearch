@@ -191,37 +191,37 @@ var IsMCC = false
 
     if (IsMCC == true)
     {
-   sheet1.appendRow([' ','Period analyzed', 'Account ID', 'Account name', 'Cost on search campaigns', 'Currency', '# of unique landing pages', 'Ratio of standard ad groups per unique landing page', '# of standard ad groups', '% of investment on standard ad groups with a RSA at Ad Strength that are "POOR"' , 'Actual investment on ad groups with RSA that are “POOR”', '% of investment on standard ad groups with a RSA at Ad Strength that are "AVERAGE"', 'Actual investment on ad groups with RSA that are “AVERAGE”',  '% of investment on RSA  ad groups that are “GOOD”', 'Actual investment on standard ad groups with a RSA at Ad Strength that are "GOOD"', '% of investment on RSA ad groups that are “EXCELLENT”', 'Actual investment on standard ad groups with a RSA at Ad Strength that are "EXCELLENT"', '% of investment on DSA ad groups', '% of standard ad groups >= '+IMPRESSION_THRESHOLD/1000+'k impressions', 'Average impressions per standard ad group with < '+IMPRESSION_THRESHOLD/1000+'k impressions','# of search campaigns', '# of experiment search campaigns - to explain some traffic split', '% of investment on conversion-based smartbidding campaigns','Bidding strategies', '% of campaigns >= '+CONVERSION_THRESHOLD+' conversions', 'Average conversions on campaigns with < '+CONVERSION_THRESHOLD+' conversions', '# of campaigns with IS lost due to budget (account level)', '# of active keywords', '% of active keywords without impressions',  '# of active broad keywords', '% of active broad keywords without impressions', 'Action plan']);
+   sheet1.appendRow([' ','Period analyzed', 'Account ID', 'Account name', 'Campaign ID', 'Campaign name', 'Cost on search campaigns', 'Currency', '# of unique landing pages', 'Ratio of standard ad groups per unique landing page', '# of standard ad groups', '% of investment on standard ad groups with a RSA at Ad Strength that are "POOR"' , 'Actual investment on ad groups with RSA that are “POOR”', '% of investment on standard ad groups with a RSA at Ad Strength that are "AVERAGE"', 'Actual investment on ad groups with RSA that are “AVERAGE”',  '% of investment on RSA  ad groups that are “GOOD”', 'Actual investment on standard ad groups with a RSA at Ad Strength that are "GOOD"', '% of investment on RSA ad groups that are “EXCELLENT”', 'Actual investment on standard ad groups with a RSA at Ad Strength that are "EXCELLENT"', '% of investment on DSA ad groups', '% of standard ad groups >= '+IMPRESSION_THRESHOLD/1000+'k impressions', 'Average impressions per standard ad group with < '+IMPRESSION_THRESHOLD/1000+'k impressions','# of search campaigns', '# of experiment search campaigns - to explain some traffic split', '% of investment on conversion-based smartbidding campaigns','Bidding strategies', '% of campaigns >= '+CONVERSION_THRESHOLD+' conversions', 'Average conversions on campaigns with < '+CONVERSION_THRESHOLD+' conversions', '# of campaigns with IS lost due to budget (account level)', '# of active keywords', '% of active keywords without impressions',  '# of active broad keywords', '% of active broad keywords without impressions', 'Action plan']);
       sheet1.getRange('a:a').setBorder(true, true, true, null, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
-      sheet1.getRange('a1:af5').setBorder(true, true, true, true, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
-      sheet1.getRange('x6:aa6').setBorder(null, null, null, true, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
+      sheet1.getRange('a1:ah5').setBorder(true, true, true, true, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
+      sheet1.getRange('x6:ah6').setBorder(null, null, null, true, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
       sheet1.getRange('w6').setBorder(null, null, null, true, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
-      sheet1.getRange('a7:ab7').setWrap(true);
+      sheet1.getRange('a7:ah7').setWrap(true);
       sheet1.getRange('b2:b2').setFontWeight('bold');
       sheet1.getRange('b2:b2').setFontSize(14);
-      sheet1.getRange('a1:af7').setFontColor('#666666');
-      sheet1.getRange('a6:af7').setVerticalAlignment('middle');
-      sheet1.getRange('a6:af7').setHorizontalAlignment('center');
+      sheet1.getRange('a1:ah7').setFontColor('#666666');
+      sheet1.getRange('a6:ah7').setVerticalAlignment('middle');
+      sheet1.getRange('a6:ah7').setHorizontalAlignment('center');
       sheet1.getRange('g:g').setHorizontalAlignment('center');
       sheet1.getRange('h:h').setHorizontalAlignment('center');
       sheet1.setColumnWidth(1, 21);
-      sheet1.getRange('b6:f6').merge();
-      sheet1.getRange('b6:f6').setValue('Account details');
-      sheet1.getRange('b6:f6').setBackground('#4285f4');
-      sheet1.getRange('g6:h6').merge();
-      sheet1.getRange('g6:h6').setValue('Landing pages');
-      sheet1.getRange('g6:h6').setBackground('#ea4335');
-      sheet1.getRange('i6:t6').merge();
-      sheet1.getRange('i6:t6').setValue('Ad groups');
-      sheet1.getRange('i6:t6').setBackground('#fbbc04');
-      sheet1.getRange('u6:aa6').merge();
-      sheet1.getRange('u6:aa6').setValue('Campaigns');
-      sheet1.getRange('u6:aa6').setBackground('#34a853');
-      sheet1.getRange('ab6:ae6').merge();
-      sheet1.getRange('ab6:ae6').setValue('Keywords');
-      sheet1.getRange('ab6:ab6').setBackground('#d5a6bd');
-      sheet1.getRange('b6:af6').setFontColor('white');
-      sheet1.getRange('af7').setFontWeight('bold');
+      sheet1.getRange('b6:h6').merge();
+      sheet1.getRange('b6:h6').setValue('Account details');
+      sheet1.getRange('b6:h6').setBackground('#4285f4');
+      sheet1.getRange('i6:j6').merge();
+      sheet1.getRange('i6:j6').setValue('Landing pages');
+      sheet1.getRange('i6:j6').setBackground('#ea4335');
+      sheet1.getRange('k6:v6').merge();
+      sheet1.getRange('k6:v6').setValue('Ad groups');
+      sheet1.getRange('k6:v6').setBackground('#fbbc04');
+      sheet1.getRange('w6:ac6').merge();
+      sheet1.getRange('w6:ac6').setValue('Campaigns');
+      sheet1.getRange('w6:ac6').setBackground('#34a853');
+      sheet1.getRange('ad6:ag6').merge();
+      sheet1.getRange('ad6:ag6').setValue('Keywords');
+      sheet1.getRange('ad6:ag6').setBackground('#d5a6bd');
+      sheet1.getRange('b6:ah6').setFontColor('white');
+      sheet1.getRange('ah7').setFontWeight('bold');
       sheet1.setColumnWidth(23, 400);
       sheet1.setColumnWidth(4, 170);
       sheet1.setColumnWidth(2, 160);
@@ -250,38 +250,38 @@ var IsMCC = false
       sheet1.appendRow([' ']);
       sheet1.appendRow([' ']);
       sheet1.appendRow([' ']);
-  sheet1.appendRow([' ','Period analyzed', 'Account ID', 'Account name', 'Cost on search campaigns', 'Currency', '# of unique landing pages', 'Ratio of standard ad groups per unique landing page', '# of standard ad groups', '% of investment on standard ad groups with a RSA at Ad Strength that are "POOR"' , 'Actual investment on ad groups with RSA that are “POOR”', '% of investment on standard ad groups with a RSA at Ad Strength that are "AVERAGE"', 'Actual investment on ad groups with RSA that are “AVERAGE”',  '% of investment on RSA ad groups that are “GOOD”', 'Actual investment on standard ad groups with a RSA at Ad Strength that are "GOOD"', '% of investment on RSA ad groups that are “EXCELLENT”', 'Actual investment on standard ad groups with a RSA at Ad Strength that are "EXCELLENT"', '% of investment on DSA ad groups', '% of standard ad groups >= '+IMPRESSION_THRESHOLD/1000+'k impressions', 'Average impressions per standard ad group with < '+IMPRESSION_THRESHOLD/1000+'k impressions','# of search campaigns', '# of experiment search campaigns - to explain some traffic split', '% of investment on conversion-based smartbidding campaigns','Bidding strategies', '% of campaigns >= '+CONVERSION_THRESHOLD+' conversions', 'Average conversions on campaigns with < '+CONVERSION_THRESHOLD+' conversions', '# of campaigns with IS lost due to budget (account level)', '# of active keywords', '% of active keywords without impressions',  '# of active broad keywords', '% of active broad keywords without impressions', 'Action plan']);
+  sheet1.appendRow([' ','Period analyzed', 'Account ID', 'Account name', 'Campaign ID', 'Campaign name', 'Cost on search campaigns', 'Currency', '# of unique landing pages', 'Ratio of standard ad groups per unique landing page', '# of standard ad groups', '% of investment on standard ad groups with a RSA at Ad Strength that are "POOR"' , 'Actual investment on ad groups with RSA that are “POOR”', '% of investment on standard ad groups with a RSA at Ad Strength that are "AVERAGE"', 'Actual investment on ad groups with RSA that are “AVERAGE”',  '% of investment on RSA ad groups that are “GOOD”', 'Actual investment on standard ad groups with a RSA at Ad Strength that are "GOOD"', '% of investment on RSA ad groups that are “EXCELLENT”', 'Actual investment on standard ad groups with a RSA at Ad Strength that are "EXCELLENT"', '% of investment on DSA ad groups', '% of standard ad groups >= '+IMPRESSION_THRESHOLD/1000+'k impressions', 'Average impressions per standard ad group with < '+IMPRESSION_THRESHOLD/1000+'k impressions','# of search campaigns', '# of experiment search campaigns - to explain some traffic split', '% of investment on conversion-based smartbidding campaigns','Bidding strategies', '% of campaigns >= '+CONVERSION_THRESHOLD+' conversions', 'Average conversions on campaigns with < '+CONVERSION_THRESHOLD+' conversions', '# of campaigns with IS lost due to budget (account level)', '# of active keywords', '% of active keywords without impressions',  '# of active broad keywords', '% of active broad keywords without impressions', 'Action plan']);
       sheet1.setFrozenRows(7);
       sheet1.getRange('a:a').setBorder(true, true, true, null, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
       sheet1.getRange('a1:af5').setBorder(true, true, true, true, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
       sheet1.getRange('af6').setBorder(null, null, null, true, true, true, 'white', SpreadsheetApp.BorderStyle.SOLID);
-      sheet1.getRange('a7:af7').setWrap(true);
+      sheet1.getRange('a7:ag7').setWrap(true);
       sheet1.getRange('b2:b2').setFontWeight('bold');
       sheet1.getRange('b2:b2').setFontSize(14);
-      sheet1.getRange('a1:af7').setFontColor('#666666');
-      sheet1.getRange('a6:af7').setVerticalAlignment('middle');
-      sheet1.getRange('a6:af7').setHorizontalAlignment('center');
+      sheet1.getRange('a1:ag7').setFontColor('#666666');
+      sheet1.getRange('a6:ag7').setVerticalAlignment('middle');
+      sheet1.getRange('a6:ag7').setHorizontalAlignment('center');
       sheet1.getRange('i:j').setHorizontalAlignment('center');
       sheet1.getRange('e8:f8').setHorizontalAlignment('center');
       if (PERIOD_COMPARISON_BEGINNING != 'disabled') { sheet1.getRange('e9:f9').setHorizontalAlignment('center') }
       sheet1.setColumnWidth(1, 21);
-      sheet1.getRange('b6:f6').merge();
-      sheet1.getRange('b6:f6').setValue('Account details');
-      sheet1.getRange('b6:f6').setBackground('#4285f4');
-      sheet1.getRange('g6:h6').merge();
-      sheet1.getRange('g6:h6').setValue('Landing pages');
-      sheet1.getRange('g6:h6').setBackground('#ea4335');
-      sheet1.getRange('i6:t6').merge();
-      sheet1.getRange('i6:t6').setValue('Ad groups');
-      sheet1.getRange('i6:t6').setBackground('#fbbc04');
-      sheet1.getRange('u6:aa6').merge();
-      sheet1.getRange('u6:aa6').setValue('Campaigns');
-      sheet1.getRange('u6:aa6').setBackground('#34a853');
-      sheet1.getRange('ab6:ae6').merge();
-      sheet1.getRange('ab6:ae6').setValue('Keywords');
-      sheet1.getRange('ab6:ae6').setBackground('#d5a6bd');
-      sheet1.getRange('b6:ae6').setFontColor('white');
-      sheet1.getRange('af7').setFontWeight('bold');
+      sheet1.getRange('b6:h6').merge();
+      sheet1.getRange('b6:h6').setValue('Account details');
+      sheet1.getRange('b6:h6').setBackground('#4285f4');
+      sheet1.getRange('i6:j6').merge();
+      sheet1.getRange('i6:j6').setValue('Landing pages');
+      sheet1.getRange('i6:j6').setBackground('#ea4335');
+      sheet1.getRange('i6:v6').merge();
+      sheet1.getRange('i6:v6').setValue('Ad groups');
+      sheet1.getRange('i6:v6').setBackground('#fbbc04');
+      sheet1.getRange('w6:ac6').merge();
+      sheet1.getRange('w6:ac6').setValue('Campaigns');
+      sheet1.getRange('w6:ac6').setBackground('#34a853');
+      sheet1.getRange('ad6:ag6').merge();
+      sheet1.getRange('ad6:ag6').setValue('Keywords');
+      sheet1.getRange('ad6:ag6').setBackground('#d5a6bd');
+      sheet1.getRange('b6:ah6').setFontColor('white');
+      sheet1.getRange('ah7').setFontWeight('bold');
       sheet1.setColumnWidth(26, 400);
       sheet1.setColumnWidth(4, 150);
       sheet1.setColumnWidth(6, 150);
@@ -739,33 +739,35 @@ var reportadgroup = AdsApp.report(
                           periodformatted, // Row B
                           accountCID, // Row C
                           accountName, // Row D
-                          totalcostaccount, // Row E
-                          accountcurrency, // Row F
-                          landingpage, // Row G
-                          ratiolp, // Row H
-                          adGroupnumber, // Row I
-                          shareRSAExcellentCost, // Row J
-                          reportRSAExcellent, // Need Actuals Row K
-                          shareRSAGoodCost, // Row L
-                          reportRSAGood, // Need Actuals Row M
-                          shareRSAAverageCost, // Row N
-                          reportRSAAverage, // Need Actuals Row o
-                          shareRSABadCost, // Row P
-                          reportRSABad, // Need Actuals Row Q
-                          shareDSAclicks, // Row R
-                          pourcenthighimpression,  // Row S
-                          avstdadgroupimp, // Row T
-                          searchcampaignsnumber, // Row U
-                          searchcampaignstrialnumber,  // Row V
-                          sharesmartbidding, // Row W
-                          smartbiddingstrategies, // Row X
-                          pourcentcampaignhigh, // Row Y
-                          averageconv,  // Row Z
-                          totalcountISlostbudget, // Row AA
-                          totalkeywords, // Row AB
-                          percentlowkeywords,  // Row AC
-                          totalkeywordsbroad,// Row AD 
-                          percentlowkeywordsbroad]); // Row AE
+                          'All', // Row E
+                          'All', // Row F
+                          totalcostaccount, // Row G
+                          accountcurrency, // Row H
+                          landingpage, // Row I
+                          ratiolp, // Row J
+                          adGroupnumber, // Row K
+                          shareRSAExcellentCost, // Row L
+                          reportRSAExcellent, // Need Actuals Row M
+                          shareRSAGoodCost, // Row N
+                          reportRSAGood, // Need Actuals Row O
+                          shareRSAAverageCost, // Row P
+                          reportRSAAverage, // Need Actuals Row Q
+                          shareRSABadCost, // Row R
+                          reportRSABad, // Need Actuals Row S
+                          shareDSAclicks, // Row T
+                          pourcenthighimpression,  // Row U
+                          avstdadgroupimp, // Row V
+                          searchcampaignsnumber, // Row W
+                          searchcampaignstrialnumber,  // Row X
+                          sharesmartbidding, // Row Y
+                          smartbiddingstrategies, // Row Z
+                          pourcentcampaignhigh, // Row AA
+                          averageconv,  // Row AB
+                          totalcountISlostbudget, // Row AC
+                          totalkeywords, // Row AD
+                          percentlowkeywords,  // Row AE
+                          totalkeywordsbroad,// Row AF
+                          percentlowkeywordsbroad]); // Row AG
         if (periodfromtxt != PERIOD_COMPARISON_BEGINNING) { analysedelements++;  }
  }
  else
@@ -774,34 +776,36 @@ var reportadgroup = AdsApp.report(
                           periodformatted, // Row B
                           accountCID, // Row C
                           accountName, // Row D
-                          totalcostaccount, // Row E
-                          accountcurrency, // Row F
-                          landingpage, // Row G
-                          ratiolp, // Row H
-                          adGroupnumber, // Row I
-                          shareRSAExcellentCost, // Row J
-                          reportRSAExcellent, // Need Actuals Row K
-                          shareRSAGoodCost, // Row L
-                          reportRSAGood, // Need Actuals Row M
-                          shareRSAAverageCost, // Row N
-                          reportRSAAverage, // Need Actuals Row o
-                          shareRSABadCost, // Row P
-                          reportRSABad, // Need Actuals Row Q
-                          shareDSAclicks, // Row R
-                          pourcenthighimpression, // Row S
-                          avstdadgroupimp, // Row T
-                          searchcampaignsnumber, // Row U
-                          searchcampaignstrialnumber, // Row V
-                          sharesmartbidding, // Row W
-                          smartbiddingstrategies,// Row X
-                          pourcentcampaignhigh, // Row Y
-                          averageconv, // Row Z
-                          totalcountISlostbudget, // Row AA
-                          totalkeywords, // Row AB
-                          percentlowkeywords, // Row AC
-                          totalkeywordsbroad,  // Row AD
-                          percentlowkeywordsbroad, // Row AE
-                          '' ]); /// Row AF
+                          'All', // Row E
+                          'All', // Row F
+                          totalcostaccount, // Row G
+                          accountcurrency, // Row H
+                          landingpage, // Row I
+                          ratiolp, // Row J
+                          adGroupnumber, // Row K
+                          shareRSAExcellentCost, // Row L
+                          reportRSAExcellent, // Need Actuals Row M
+                          shareRSAGoodCost, // Row N
+                          reportRSAGood, // Need Actuals Row O
+                          shareRSAAverageCost, // Row P
+                          reportRSAAverage, // Need Actuals Row Q
+                          shareRSABadCost, // Row R
+                          reportRSABad, // Need Actuals Row S
+                          shareDSAclicks, // Row T
+                          pourcenthighimpression,  // Row U
+                          avstdadgroupimp, // Row V
+                          searchcampaignsnumber, // Row W
+                          searchcampaignstrialnumber,  // Row X
+                          sharesmartbidding, // Row Y
+                          smartbiddingstrategies, // Row Z
+                          pourcentcampaignhigh, // Row AA
+                          averageconv,  // Row AB
+                          totalcountISlostbudget, // Row AC
+                          totalkeywords, // Row AD
+                          percentlowkeywords,  // Row AE
+                          totalkeywordsbroad,// Row AF
+                          percentlowkeywordsbroad, // Row AG
+                          '' ]); /// Row AH
    
  }
 
@@ -1035,36 +1039,38 @@ function campaignassessment(periodfromtxt, periodtotxt, campaign, sheet1, IGNORE
         if (landingpage > 0) { ratiolp = parseFloat(Math.abs(adGroupnumber - adGroupDSAnumber) / landingpage).toFixed(1) + ' : 1' }
 
                    sheet1.appendRow([' ',  // Row A
-                                     periodformatted, // Row B
-                                     campaignid,  // Row C
-                                     campaignname,   // Row D
-                                     totalcostaccount,   // Row E
-                                     accountcurrency,   // Row F 
-                                     landingpage,   // Row G
-                                     ratiolp, // Row H
-                                     adGroupnumber, // Row I
-                                     shareRSAExcellentCost, // Row J
-                                     reportRSAExcellent, // Need Actuals Row K
-                                     shareRSAGoodCost, // Row L
-                                     reportRSAGood, // Need Actuals Row M
-                                     shareRSAAverageCost, // Row N
-                                     reportRSAAverage, // Need Actuals Row o
-                                     shareRSABadCost, // Row P
-                                     reportRSABad, // Need Actuals Row Q
-                                     shareDSAclicks, // Row R
-                                     pourcenthighimpression, // Row S
-                                     avstdadgroupimp, // Row T
-                                     searchcampaignsnumber, // Row U
-                                     searchcampaignstrialnumber, // Row V
-                                     sharesmartbidding, // Row W
-                                     bidstrategy, // Row X 
-                                     pourcentcampaignhigh,  // Row Y
-                                     averageconv, // Row Z
-                                     SearchBudgetLostImpressionShare, // Row AA
-                                     totalkeywords, // Row AB
-                                     percentlowkeywords, // Row AC
-                                     totalkeywordsbroad, // Row AD
-                                     percentlowkeywordsbroad]); // Row AE
+                                     periodformatted, // Row B  
+                                     ' ', //Row C
+                                     ' ', // Row D
+                                     campaignid,  // Row E
+                                     campaignname,   // Row F
+                                     totalcostaccount,   // Row G
+                                     accountcurrency,   // Row H
+                                     landingpage,   // Row I
+                                     ratiolp, // Row J
+                                     adGroupnumber, // Row K
+                                     shareRSAExcellentCost, // Row L
+                                     reportRSAExcellent, // Need Actuals Row M
+                                     shareRSAGoodCost, // Row N
+                                     reportRSAGood, // Need Actuals Row O
+                                     shareRSAAverageCost, // Row P
+                                     reportRSAAverage, // Need Actuals Row Q
+                                     shareRSABadCost, // Row R
+                                     reportRSABad, // Need Actuals Row S
+                                     shareDSAclicks, // Row T
+                                     pourcenthighimpression, // Row U
+                                     avstdadgroupimp, // Row V
+                                     searchcampaignsnumber, // Row W
+                                     searchcampaignstrialnumber, // Row X
+                                     sharesmartbidding, // Row Y
+                                     bidstrategy, // Row Z
+                                     pourcentcampaignhigh,  // Row AA
+                                     averageconv, // Row AB
+                                     SearchBudgetLostImpressionShare, // Row AC
+                                     totalkeywords, // Row AD
+                                     percentlowkeywords, // Row AE
+                                     totalkeywordsbroad, // Row AF
+                                     percentlowkeywordsbroad]); // Row AG
           if (periodfromtxt != PERIOD_COMPARISON_BEGINNING) { analysedelements++;  }
 }
 
