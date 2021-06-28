@@ -747,13 +747,13 @@ var reportadgroup = AdsApp.report(
                           ratiolp, // Row J
                           adGroupnumber, // Row K
                           shareRSAExcellentCost, // Row L
-                          reportRSAExcellent, // Need Actuals Row M
+                          RSAExcellentCost, // Row M
                           shareRSAGoodCost, // Row N
-                          reportRSAGood, // Need Actuals Row O
+                          RSAGoodCost, // Row O
                           shareRSAAverageCost, // Row P
-                          reportRSAAverage, // Need Actuals Row Q
+                          RSAAverageCost, // Row Q
                           shareRSABadCost, // Row R
-                          reportRSABad, // Need Actuals Row S
+                          RSABadCost, // Row S
                           shareDSAclicks, // Row T
                           pourcenthighimpression,  // Row U
                           avstdadgroupimp, // Row V
@@ -784,13 +784,13 @@ var reportadgroup = AdsApp.report(
                           ratiolp, // Row J
                           adGroupnumber, // Row K
                           shareRSAExcellentCost, // Row L
-                          reportRSAExcellent, // Need Actuals Row M
+                          RSAExcellentCost, // Row M
                           shareRSAGoodCost, // Row N
-                          reportRSAGood, // Need Actuals Row O
+                          RSAGoodCost,// Row O
                           shareRSAAverageCost, // Row P
-                          reportRSAAverage, // Need Actuals Row Q
+                          RSAAverageCost, //  Row Q
                           shareRSABadCost, // Row R
-                          reportRSABad, // Need Actuals Row S
+                          RSABadCost, // Row S
                           shareDSAclicks, // Row T
                           pourcenthighimpression,  // Row U
                           avstdadgroupimp, // Row V
@@ -1050,13 +1050,13 @@ function campaignassessment(periodfromtxt, periodtotxt, campaign, sheet1, IGNORE
                                      ratiolp, // Row J
                                      adGroupnumber, // Row K
                                      shareRSAExcellentCost, // Row L
-                                     reportRSAExcellent, // Need Actuals Row M
+                                     RSAExcellentCost, // Row M
                                      shareRSAGoodCost, // Row N
-                                     reportRSAGood, // Need Actuals Row O
+                                     RSAGoodCost, // Row O
                                      shareRSAAverageCost, // Row P
-                                     reportRSAAverage, // Need Actuals Row Q
+                                     RSAAverageCost, // Row Q
                                      shareRSABadCost, // Row R
-                                     reportRSABad, // Need Actuals Row S
+                                     RSABadCost, // Row S
                                      shareDSAclicks, // Row T
                                      pourcenthighimpression, // Row U
                                      avstdadgroupimp, // Row V
